@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un APD{% endblock %}
+
+{% block body %}
+    <br>  
+              <center class="titre">Ajouter un APD</center>
+<br> 
+   <div class="container">
+  
+            <a href="{{ path('apd_index') }}" class="btn btn-info">Liste des APD</a>
+<br> <br> 
+    {{ include('apd/_form.html.twig') }}
+</div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

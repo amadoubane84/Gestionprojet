@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visite{% endblock %}
+
+{% block body %}
+    <br>
+          <center class="titre">Détails de la visite</center>
+    <br> 
+
+
+ <div class="container">
+
+    <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>Fiche de visite n°</th>
+                <td>{{ visite.Visite }}</td>
+            </tr>
+             <tr>
+                <th>Nom du projet</th>
+                <td>{{ visite.nomprojet }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                {% if visite.etat == 0 %}
+                            <td>En cours</td>
+                            {% elseif visite.etat == 1  %}
+                            <td>Acceptée</td>
+                            {% elseif visite.etat == 2 %}
+                            <td>Refusée</td>
+                            {% endif %}
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td><a href="{{ asset('uploads/brochures/' ~ visite.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+     <div class="text-center"> 
+        <a href="{{ path('visite_index') }}" class="btn btn-info">Liste des visites</a>
+
+        <a href="{{ path('visite_edit', {'id': visite.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('visite/_delete_form.html.twig') }}
+</div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

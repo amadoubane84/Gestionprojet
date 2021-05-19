@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'APS{% endblock %}
+
+{% block body %}
+    <br>
+          <center class="titre">Modifier l'APS</center>
+    <br> 
+     <div class="container">
+        <a href="{{ path('aps_index') }}"class="btn btn-info">Liste des APS</a>
+
+    {{ include('aps/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+ <br>  <br> 
+
+    {{ include('aps/_delete_form.html.twig') }}
+    <footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer></div>
+{% endblock %}

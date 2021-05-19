@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du projet{% endblock %}
+
+{% block body %}
+    <br>
+          <center class="titre">Détails du projet</center>
+    <br> 
+
+
+ <div class="container">
+   <div class="text-center"> 
+<button type="button" class="btn btn-light btn-lg"><a href="{{ path('menu', {'id': projet.id}) }}" class="btn btn-success">ÉTUDES</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-light btn-lg"><a href="{{ path('etude') }}" class="btn btn-success">SUIVI ET CONTROLE</a></button></div>
+<br><br>
+    <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>Titre du projet</th>
+                <td>{{ projet.Titreprojet }}</td>
+            </tr>
+            <tr>
+                <th>Maître d'ouvrage</th>
+                <td>{{ projet.Maitreouvrage }}</td>
+            </tr>
+            <tr>
+                <th>Entreprise</th>
+                <td>{{ projet.Entreprise }}</td>
+            </tr>
+            <tr>
+                <th>Date OS</th>
+                <td>{{ projet.Dateos ? projet.Dateos|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date fin de contrat</th>
+                <td>{{ projet.Datefincontrat ? projet.Datefincontrat|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Site</th>
+                <td> <a href="{{ path('site_new') }}"class="btn btn-success">{{ projet.site }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+        <div class="text-center"> 
+        <a href="{{ path('projet_index') }}" class="btn btn-info">Liste des projets</a>
+
+        <a href="{{ path('projet_edit', {'id': projet.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('projet/_delete_form.html.twig') }}
+</div>
+{% endblock %}

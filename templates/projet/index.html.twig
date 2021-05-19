@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des projets{% endblock %}
+
+{% block body %}
+
+    <br><a href="{{ path('projet_new') }}" class="btn btn-success">Ajouter un projet</a>
+          <center class="titre">Liste des projets</center>
+   
+      
+
+ <div class="container">
+  <div class="text-center">
+  <table class="table">
+
+                     <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projet in projets %}
+            <tr class="ttttt">
+                <td><a href="{{ path('projet_show', {'id': projet.id}) }}" >
+            {{ projet.Titreprojet }}</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun projet enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+ {#
+    <table class="table">
+        <thead>
+            <tr id="header">
+             
+                <th>Titre du projet</th>
+                <th>Maître d'ouvrage</th>
+                <th>Entreprise</th>
+                <th>Date OS</th>
+                <th>Date de fin de contrat</th>
+                <th>Site</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projet in projets %}
+            <tr class="ttttt">
+                <td>{{ projet.Titreprojet }}</td>
+                <td>{{ projet.Maitreouvrage }}</td>
+                <td>{{ projet.Entreprise }}</td>
+                <td>{{ projet.Dateos ? projet.Dateos|date('Y-m-d') : '' }}</td>
+                <td>{{ projet.Datefincontrat ? projet.Datefincontrat|date('Y-m-d') : '' }}</td>
+                <td>{{ projet.site }}</td>
+                <td>
+                    <a href="{{ path('projet_show', {'id': projet.id}) }}">Voir</a>
+                    <a href="{{ path('projet_edit', {'id': projet.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun projet enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+#}
+
+
+     </div>
+{% endblock %}

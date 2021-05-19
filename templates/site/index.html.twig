@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des sites{% endblock %}
+
+{% block body %}
+
+    <br>
+          <center class="titre">Liste des sites 
+              </center>
+    <br>  
+      <a href="{{ path('site_new') }}" class="btn btn-success">Ajouter un site</a>
+
+ <div class="container">
+    <table class="table" id="myTable">
+        <thead>
+            <tr id="header">
+           
+                <th>Adresse </th>
+                <th>Chef de projet</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for site in sites %} 
+            <tr class="ttttt"> 
+              
+                <td>{{ site.lieusite }}</td>
+                <td>{{ site.responsable }}</td>
+                <td>{{ site.contact }}</td>
+                <td>
+                    <a href="{{ path('site_show', {'id': site.id}) }}">Voir</a>
+                    <a href="{{ path('site_edit', {'id': site.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun site enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+     </div>
+{% endblock %}

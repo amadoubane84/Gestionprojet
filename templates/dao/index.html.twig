@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des DAO{% endblock %}
+
+{% block body %}  <center class="titre">Liste des DAO</center>
+ <br>  
+  
+ <div class="container">
+  <div class="text-center">
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr id="header">
+                 <th>Nom du projet</th>          
+                <th>Date </th>
+                <th>Commentaire</th>
+                <th>Document</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for d_a_o in d_a_os %}
+            <tr class="ttttt">
+                <td>{{ d_a_o.nomprojet }}</td>
+                <td>{{ d_a_o.datedao ? d_a_o.datedao|date('d-m-Y') : '' }}</td>
+                <td>{{ d_a_o.commentaire }}</td>
+                <td>
+                <a href="{{ asset('uploads/brochures/' ~ d_a_o.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a>
+                </td>                
+                 <td>
+                    <a href="{{ path('dao_show', {'id': d_a_o.id}) }}">Voir</a>
+                    <a href="{{ path('dao_edit', {'id': d_a_o.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun DAO enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <a href="{{ path('dao_new') }}"class="btn btn-success">Ajouter un DAO</a>
+        </div></div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le DAO{% endblock %}
+
+{% block body %}
+    <br>
+          <center class="titre">Modifier le DAO</center>
+    <br> 
+     <div class="container">
+        <a href="{{ path('dao_index') }}"class="btn btn-info">Liste des DAO</a>
+
+    {{ include('dao/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+ <br>  <br> 
+
+    {{ include('dao/_delete_form.html.twig') }}
+    <footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer></div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+ 
+    <div class="container formulaire" >
+      <style>
+   .milieu{
+      
+       margin-left:350px;
+   }
+    </style>
+<br> 
+    <div class="text-center">
+   <div class="milieu"> 
+    <div class="col-md-6">
+        {{ form_row(form.nomprojet, {'label':'Sélectionner le nom du projet'}) }}
+    </div>
+     
+    <div class="col-md-6">
+        {{ form_row(form.lieusite, {'label':'Adresse du site'}) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(form.responsable,{'label':'Chef de projet'}) }}
+    </div>  
+     <div class="col-md-6">
+        {{ form_row(form.contact, {'label':'Contact du chef projet'}) }}
+  </div> <br> 
+    </div>
+        <div class="text-center">
+        <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+        </div> <br> 
+</div>
+{{ form_end(form) }}

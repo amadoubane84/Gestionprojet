@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails  site{% endblock %}
+
+{% block body %}
+   <br>
+          <center class="titre">Suivi et Contrôle</center>
+    <br> 
+
+
+ <div class="container">
+    <div class="text-center"> 
+<button type="button" class="btn btn-light btn-lg"><a href="" class="btn btn-success">DOCUMENTS DE SUIVI</a></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-light btn-lg"><a href="{{ path('visite_index') }}" class="btn btn-success">VISITE TECHNIQUE</a></button>
+<a href="{{ path('telechargement_new') }}"class="btn btn-success">Ajouter un document</a>
+
+</div>
+<br><br>
+</div>
+
+{% endblock %}

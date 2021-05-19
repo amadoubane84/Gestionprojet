@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la visite{% endblock %}
+
+{% block body %}
+ <br>
+          <center class="titre">Modifier la visite</center>
+    <br> 
+    <div class="container">
+    <a href="{{ path('visite_index') }}" class="btn btn-info">Liste des visites</a>
+ <br>  <br> 
+    {{ include('visite/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+
+    {{ include('visite/_delete_form.html.twig') }}
+     </div> 
+{% endblock %}

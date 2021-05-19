@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'APD{% endblock %}
+
+{% block body %}
+<br>
+          <center class="titre">Détails de l'APD</center>
+    <br> 
+
+
+ <div class="container">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Date APD</th>
+                <td>{{a_p_d.dateapd ? a_p_d.dateapd|date('d-m-Y') : '' }}</td>
+            </tr>
+             <tr>
+            <th>Nom du projet</th>
+         <td>{{a_p_d.nomprojet }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{a_p_d.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td> <a href="{{ asset('uploads/brochures/' ~ a_p_d.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+     <div class="text-center"> 
+        <a href="{{ path('apd_index') }}" class="btn btn-info">Liste des APD</a>
+
+        <a href="{{ path('apd_edit', {'id': a_p_d.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('apd/_delete_form.html.twig') }}
+</div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

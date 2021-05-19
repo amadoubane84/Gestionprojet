@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DAO{% endblock %}
+
+{% block body %}
+<br>
+          <center class="titre">Détails de la DAO</center>
+    <br> <br> <br> 
+
+
+ <div class="container">
+    <table class="table">
+        <tbody>
+            
+            <tr>
+                <th>Date</th>
+                <td>{{ d_a_o.datedao ? d_a_o.datedao|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ d_a_o.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td> <a href="{{ asset('uploads/brochures/' ~ d_a_o.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center"> 
+        <a href="{{ path('apd_index') }}" class="btn btn-info">Liste des DAO</a>
+
+        <a href="{{ path('dao_edit', {'id': d_a_o.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('dao/_delete_form.html.twig') }}
+</div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

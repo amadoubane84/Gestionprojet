@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu APS APD DAO{% endblock %}
+
+{% block body %}
+   <br>
+          <center class="titre">Menu APS APD DAO</center>
+    <br> 
+
+
+ <div class="container">
+    <div class="text-center"> 
+   <br><br><br><br><br><br><br><br> 
+<button type="button" class="btn btn-light btn-lg"><a href="{{ path('aps_new') }}" class="btn btn-success">APS</a></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-light btn-lg"><a href="{{ path('apd_new') }}" class="btn btn-success">APD</a></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-light btn-lg"><a href="{{ path('dao_new') }}" class="btn btn-success">DAO</a></button>
+
+
+
+
+</div>
+</div>
+<br><br>
+
+
+{% endblock %}

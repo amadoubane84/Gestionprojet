@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des visites{% endblock %}
+
+{% block body %}
+<br> 
+   <center class="titre">Liste des visites</center>
+ <br>  <br> <br> 
+  
+ <div class="container">
+  <div class="text-center">
+
+    <table class="table" id="myTable"> 
+        <thead>
+            <tr id="header">
+                <th>Visite N°</th>
+                 <th>Nom du projet</th>
+                <th>Fiche de visite</th>
+                <th>Etat</th>
+               
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visite in visites %}
+            <tr class="ttttt">
+                <td>Fiche de visite n°{{ visite.Visite }}</td>
+               <td>{{ visite.nomprojet }}</td>
+                 <td>
+                <a href="{{ asset('uploads/brochures/' ~ visite.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a>
+                </td>
+                              {% if visite.etat == 0 %}
+                            <td style="background-color:DimGray;color:white;">En cours</td>
+                            {% elseif visite.etat == 1  %}
+                            <td style="background-color:green;color:white;">Acceptée</td>
+                            {% elseif visite.etat == 2 %}
+                            <td style="background-color:red;color:white;">Refusée</td>
+                            {% endif %}
+
+                <td>
+                    <a href="{{ path('visite_show', {'id': visite.id}) }}">Voir</a>
+                    <a href="{{ path('visite_edit', {'id': visite.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun visite enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <a href="{{ path('visite_new') }}"class="btn btn-success">Ajouter une visite</a>
+        </div></div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

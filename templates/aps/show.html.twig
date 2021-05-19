@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'APS{% endblock %}
+
+{% block body %}
+  <br>
+          <center class="titre">Détails de l'APS</center>
+    <br> 
+
+
+ <div class="container">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Date APS</th>
+                <td>{{ a_p.dateaps ? a_p.dateaps|date('d-m-Y') : '' }}</td>
+            </tr>
+             <tr>
+            <th>Nom du projet</th>
+         <td>{{ a_p.Titreprojet }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ a_p.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td><a href="{{ asset('uploads/brochures/' ~ a_p.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+     <div class="text-center"> 
+        <a href="{{ path('aps_index') }}" class="btn btn-info">Liste des APS</a>
+
+        <a href="{{ path('aps_edit', {'id': a_p.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('aps/_delete_form.html.twig') }}
+</div>
+<footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+{% endblock %}

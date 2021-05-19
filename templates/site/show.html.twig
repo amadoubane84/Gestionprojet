@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails  site{% endblock %}
+
+{% block body %}
+   <br>
+          <center class="titre">Détails du site de {{ site.nomsite }}
+</center>
+    <br> 
+
+
+ <div class="container">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Adresse du site</th>
+                <td>{{ site.lieusite }}</td>
+            </tr>
+            
+            <tr>
+                <th>Responsable</th>
+                <td>{{ site.responsable }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ site.contact }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center"> 
+        <a href="{{ path('site_index') }}" class="btn btn-info">Liste des sites
+              </a>
+
+        <a href="{{ path('site_edit', {'id': site.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('site/_delete_form.html.twig') }}
+</div>
+{% endblock %}

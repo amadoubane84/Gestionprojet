@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des documents{% endblock %}
+
+{% block body %}
+<center class="titre">Liste des documents à télecharger</center>
+<br>  
+ 
+<div class="container">
+ <div class="text-center">
+    <table class="table">
+        <thead>
+            <tr id="header">
+                <th>Intitulé du document</th>
+                <th>Document</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for telechargement in telechargements %}
+            <tr class="ttttt">
+                <td>{{ telechargement.Nom }}</td>
+                <td>
+                    <a href="{{ asset('uploads/brochures/' ~ telechargement.brochureFilename) }}" download="doccument.doc" target="_blank">Télecharger le fichier (word)</a></td>
+                  {# <td>
+                        <a href="{{ path('telechargement_show', {'id': telechargement.id}) }}">Voir</a>
+                        <a href="{{ path('telechargement_edit', {'id': telechargement.id}) }}">Modifier</a>
+                    </td>        #}      
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun document trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+   <div class="container formulaire" >
+      <style>
+  .milieu{
+      
+       margin-left:350px;
+   }
+    </style>
+<br> 
+    <div class="text-center">
+   <div class="milieu">
+
+    <div class="col-md-6">
+        {{ form_row(form.dateapd,{'label':'Date'}) }}
+    </div>   
+    <div class="col-md-6">
+        {{ form_row(form.nomprojet, {'label':'Sélectionner le projet'}) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(form.commentaire,{'label':'Commentaire'}) }}
+    </div>  
+     <div class="col-md-6">
+        {{ form_row(form.brochure, {'label':'Sélectionner le fichier'}) }}
+     </div> <br> 
+    </div>
+        <div class="text-center">
+        <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+        </div> <br> 
+</div>
+   
+{{ form_end(form) }}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un fichier{% endblock %}
+
+{% block body %}
+   
+<br>  
+<center class="titre">Ajouter un document</center>
+<br> 
+<div class="container">
+
+<a href="{{ path('telechargement_index') }}" class="btn btn-info">Liste des telechargements</a>
+<br> <br> 
+{{ include('telechargement/_form.html.twig') }}
+</div>
+
+{% endblock %}

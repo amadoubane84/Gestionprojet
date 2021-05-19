@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des APS{% endblock %}
+
+{% block body %}
+          <center class="titre">Liste des APS</center>
+ <br>  
+  
+ <div class="container">
+  <div class="text-center">
+
+    <table class="table" id="myTable">       
+        <thead>
+            <tr id="header">
+                <th>Nom du projet</th>          
+                <th>Date </th>
+                <th>Commentaire</th>
+                <th>Document</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for a_p in a_ps %}
+            <tr class="ttttt">
+                <td>{{ a_p.Titreprojet }}</td>
+                <td>{{ a_p.dateaps ? a_p.dateaps|date('d-m-Y') : '' }}</td>
+                <td>{{ a_p.commentaire }}</td>
+                <td>
+                <a href="{{ asset('uploads/brochures/' ~ a_p.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+                <td>
+                    <a href="{{ path('aps_show', {'id': a_p.id}) }}">Voir</a>
+                    <a href="{{ path('aps_edit', {'id': a_p.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun APS enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('aps_new') }}"class="btn btn-success">Ajouter un APS</a>
+</div>
+</div>
+ <footer>
+<span class="badge badge-pill badge-dark"><a href="{{ path('menu') }}">Menu APS, APD, DAO</a></span>
+    </footer>
+    
+
+{% endblock %}

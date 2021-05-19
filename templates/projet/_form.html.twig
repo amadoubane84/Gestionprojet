@@ -1,0 +1,38 @@
+{{ form_start(form) }}
+
+
+    <div class="container formulaire" >
+<br> 
+<div class="row">
+<div class="col-md-4">
+        {{ form_row(form.Titreprojet,{'label':'Titre du projet'}) }}
+    </div>   
+    <div class="col-md-4">
+        {{ form_row(form.Maitreouvrage,{'label':'Maitre d\'ouvrage'}) }}
+    </div>  
+     <div class="col-md-4">
+        {{ form_row(form.Entreprise, {'label':'Entreprise'}) }}
+    </div> 
+ </div> 
+
+    <div class="row">
+
+    <div class="col-md-4">
+        {{ form_row( form.Dateos,{'label':'Date OS'}) }}
+    </div> 
+      <div class="col-md-4">
+        {{ form_row(  form.Datefincontrat,{'label':'Date fin de contrat'}) }}
+    </div> 
+      <div class="col-md-4">
+        {{ form_row( form.site,{'label':'Nombre(s) de site(s)'}) }}
+    </div> 
+        </div> 
+        <br> 
+         <div class="text-center"> 
+ <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+ </div>
+ <br> 
+    </div>
+   
+
+{{ form_end(form) }}
