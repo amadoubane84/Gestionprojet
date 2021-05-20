@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du rapport{% endblock %}
+
+{% block body %}
+   <br>
+          <center class="titre">Détails du rapport</center>
+    <br> 
+
+
+ <div class="container">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Intitulé du rapport</th>
+                <td>{{ rtrimestriel.label }}</td>
+            </tr>
+             <tr>
+                <th>Nom du projet</th>
+                <td>{{ rtrimestriel.nomprojet }}</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Document</th>
+                <td><a href="{{ asset('uploads/brochures/' ~ rtrimestriel.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+     <div class="text-center"> 
+        <a href="{{ path('rtrimestriel_index') }}" class="btn btn-info">Liste des rapports trimestriels</a>
+
+        <a href="{{ path('rtrimestriel_edit', {'id': rtrimestriel.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('rtrimestriel/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des PV de réunion hebdomadaires{% endblock %}
+
+{% block body %}
+ <center class="titre">Liste des PV de réunion hebdomadaires</center>
+ <br>  
+  
+ <div class="container">
+  <div class="text-center">
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr id="header">
+                <th>Intitulé du PV</th>
+                <th>Nom du projet</th>
+                <th>Document</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pvhebdomadaire in pvhebdomadaires %}
+            <tr class="ttttt">
+                <td>{{ pvhebdomadaire.label }}</td>
+                <td>{{ pvhebdomadaire.nomprojet }}</td>
+
+                <td>
+                <a href="{{ asset('uploads/brochures/' ~ pvhebdomadaire.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a>
+                </td>
+                <td>
+                    <a href="{{ path('pvhebdomadaire_show', {'id': pvhebdomadaire.id}) }}">Voir</a>
+                    <a href="{{ path('pvhebdomadaire_edit', {'id': pvhebdomadaire.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun PV enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</br></br>
+    <a href="{{ path('pvhebdomadaire_new') }}" class="btn btn-success">Ajouter un PV</a>
+     </div>
+    </div>
+{% endblock %}

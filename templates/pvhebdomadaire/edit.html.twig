@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le PV{% endblock %}
+
+{% block body %}
+    <br>
+          <center class="titre">Modifier le PV</center>
+    <br> 
+    <div class="container">
+    <a href="{{ path('pvhebdomadaire_index') }}" class="btn btn-info">Liste des PV hebdomadaires</a>
+ <br>  <br> 
+    {{ include('pvhebdomadaire/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+
+    {{ include('pvhebdomadaire/_delete_form.html.twig') }}
+     </div>
+{% endblock %}

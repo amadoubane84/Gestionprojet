@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du PV{% endblock %}
+
+{% block body %}
+          <center class="titre">Détails du PV</center>
+    <br> 
+
+
+ <div class="container">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Intitulé du PV</th>
+                <td>{{ pvmensuel.label }}</td>
+            </tr>
+             <tr>
+                <th>Nom du projet</th>
+                <td>{{ pvmensuel.nomprojet }}</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Document</th>
+                <td><a href="{{ asset('uploads/brochures/' ~ pvmensuel.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+     <div class="text-center"> 
+        <a href="{{ path('pvmensuel_index') }}" class="btn btn-info">Liste des PV mensuel</a>
+
+        <a href="{{ path('pvmensuel_edit', {'id': pvmensuel.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('pvmensuel/_delete_form.html.twig') }}
+</div>
+{% endblock %}

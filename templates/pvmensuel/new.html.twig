@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un PV{% endblock %}
+
+{% block body %}
+     <br>  
+              <center class="titre">Ajouter un PV</center>
+<br> 
+   <div class="container">
+  
+            <a href="{{ path('pvmensuel_index') }}" class="btn btn-info">Liste des PV mensuel</a>
+<br> <br> 
+    {{ include('pvmensuel/_form.html.twig') }}
+</div>
+{% endblock %}

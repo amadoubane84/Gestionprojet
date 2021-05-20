@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des rapports mensuels{% endblock %}
+
+{% block body %}
+ <center class="titre">Liste des rapports mensuels</center>
+ <br>  
+  
+ <div class="container">
+  <div class="text-center">
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr id="header">
+                <th>Intitulé du rapport</th>
+             <th>Nom du projet</th>
+                <th>Document</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rmensuel in rmensuels %}
+            <tr class="ttttt">
+                <td>{{ rmensuel.label }}</td>
+                <td>{{ rmensuel.nomprojet }}</td>
+
+                <td>
+                <a href="{{ asset('uploads/brochures/' ~ rmensuel.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a>
+                </td>
+                <td>
+                    <a href="{{ path('rmensuel_show', {'id': rmensuel.id}) }}">Voir</a>
+                    <a href="{{ path('rmensuel_edit', {'id': rmensuel.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun rapport enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</br></br>
+    <a href="{{ path('rmensuel_new') }}" class="btn btn-success">Ajouter un rapport</a>
+     </div>
+    </div>
+{% endblock %}

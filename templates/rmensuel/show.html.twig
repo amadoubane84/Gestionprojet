@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du rapport{% endblock %}
+
+{% block body %}<br>
+          <center class="titre">Détails du rapport</center>
+    <br> 
+
+
+ <div class="container">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Intitulé du rapport</th>
+                <td>{{ rmensuel.label }}</td>
+            </tr>
+             <tr>
+                <th>Nom du projet</th>
+                <td>{{ rmensuel.nomprojet }}</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Document</th>
+                <td><a href="{{ asset('uploads/brochures/' ~ rmensuel.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+     <div class="text-center"> 
+        <a href="{{ path('rmensuel_index') }}" class="btn btn-info">Liste des rapports mensuels</a>
+
+        <a href="{{ path('rmensuel_edit', {'id': rmensuel.id}) }}"class="btn btn-warning">Modifier</a>
+    </div>
+     {{ include('rmensuel/_delete_form.html.twig') }}
+</div>
+{% endblock %}

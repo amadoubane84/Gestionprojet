@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le rapport{% endblock %}
+
+{% block body %}
+   <br>
+          <center class="titre">Modifier le rapport</center>
+    <br> 
+    <div class="container">
+    <a href="{{ path('rtrimestriel_index') }}" class="btn btn-info">Liste des rapports trimestriels</a>
+ <br>  <br> 
+    {{ include('rtrimestriel/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+
+    {{ include('rtrimestriel/_delete_form.html.twig') }}
+     </div>
+{% endblock %}

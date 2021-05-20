@@ -33,7 +33,7 @@ class ApdController extends AbstractController
     public function new(Request $request, SluggerInterface $slugger)
     {
         $aPD = new APD();
-        $form = $this->createForm(APDtype::class, $aPD);
+        $form = $this->createForm(APDType::class, $aPD);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,7 +60,7 @@ class ApdController extends AbstractController
                 $aPD->setBrochureFileName($newFilename);
                 $entityManager=$this->getDoctrine()->getManager();
                 $entityManager->persist($aPD);
-                $entityManager->flush($aPD);
+                $entityManager->flush();
             }
 
             // ... persist the $product variable or any other work

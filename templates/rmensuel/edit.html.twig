@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le rapport{% endblock %}
+
+{% block body %}
+     <br>
+          <center class="titre">Modifier le rapport</center>
+    <br> 
+    <div class="container">
+    <a href="{{ path('rmensuel_index') }}" class="btn btn-info">Liste des rapports mensuels</a>
+ <br>  <br> 
+    {{ include('rmensuel/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+
+    {{ include('rmensuel/_delete_form.html.twig') }}
+     </div>
+{% endblock %}

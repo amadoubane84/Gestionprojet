@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un rapport{% endblock %}
+
+{% block body %}
+  <br>  
+              <center class="titre">Ajouter un rapport</center>
+<br> 
+   <div class="container">
+  
+            <a href="{{ path('rtrimestriel_index') }}" class="btn btn-info">Liste des rapports trimestriels</a>
+<br> <br> 
+    {{ include('rtrimestriel/_form.html.twig') }}
+</div>
+
+{% endblock %}

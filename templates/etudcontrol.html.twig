@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails  site{% endblock %}
+{% block title %}Suivi et Contrôle{% endblock %}
 
 {% block body %}
    <br>
@@ -10,8 +10,20 @@
 
  <div class="container">
     <div class="text-center"> 
-<button type="button" class="btn btn-light btn-lg"><a href="" class="btn btn-success">DOCUMENTS DE SUIVI</a></button>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <br>  <br>  <br>  <br> 
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+   <button type="button"<a href="#" class="btn btn-primary">DOCUMENT DE SUIVI</a></button>
+   <div class="btn-group" role="group">
+     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle show" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+     <div class="dropdown-menu show" aria-labelledby="btnGroupDrop1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px);">
+       <a class="dropdown-item" href="{{ path('pvhebdomadaire_new') }}">PV de réunion hebdomadaire</a>
+       <a class="dropdown-item" href="{{ path('pvmensuel_new') }}">PV de réunion mensuel</a>
+      <a class="dropdown-item" href="{{ path('rmensuel_new') }}">Rapport mensuel</a>
+       <a class="dropdown-item" href="{{ path('rtrimestriel_new') }}">Rapport trimestriel</a>
+</div>
+     </div>
+   </div>
+   <br><br><br><br><br><br><br><br><br><br><br>
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
    <button type="button"<a href="#" class="btn btn-primary">VISITE TECHNIQUE</a></button>
    <div class="btn-group" role="group">
