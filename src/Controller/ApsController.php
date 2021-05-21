@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\APS;
 use App\Form\APSType;
 use App\Repository\APSRepository;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +21,8 @@ class ApsController extends AbstractController
 {
     /**
      * @Route("/", name="aps_index", methods={"GET"})
+     * @param APSRepository $aPSRepository
+     * @return Response
      */
     public function index(APSRepository $aPSRepository): Response
     {
@@ -30,6 +33,9 @@ class ApsController extends AbstractController
 
     /**
      * @Route("/new", name="aps_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param SluggerInterface $slugger
+     * @return RedirectResponse|Response
      */
     public function new(Request $request, SluggerInterface $slugger)
     {
@@ -73,8 +79,11 @@ class ApsController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/{id}", name="aps_show", methods={"GET"})
+     * @param APS $aP
+     * @return Response
      */
     public function show(APS $aP): Response
     {
@@ -83,8 +92,12 @@ class ApsController extends AbstractController
         ]);
     }
 
-/**
+    /**
      * @Route("/{id}/edit", name="aps_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param APS $aP
+     * @param SluggerInterface $slugger
+     * @return Response
      */
     public function edit(Request $request, APS $aP,SluggerInterface $slugger): Response
     {
@@ -125,9 +138,12 @@ class ApsController extends AbstractController
         ]);
     }
 
-    
+
     /**
      * @Route("/{id}", name="aps_delete", methods={"POST"})
+     * @param Request $request
+     * @param APS $aP
+     * @return Response
      */
     public function delete(Request $request, APS $aP): Response
     {
