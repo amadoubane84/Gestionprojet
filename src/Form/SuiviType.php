@@ -3,19 +3,28 @@
 namespace App\Form;
 
 use App\Entity\Suivi;
+use App\Entity\Projet;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class SuiviType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('nomprojet',EntityType::class, [
+            'class'=>Projet::class,
+            'choice_label'=>'Titreprojet',
+            'attr'=>[
+                'class'=>'selection'
+            ]
+        ])
             ->add('brochure', FileType::class, [
-                'label' => 'Reunion de démarrage (PDF file)',
+                'label' => 'Reunion de démarrage (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -30,7 +39,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure1', FileType::class, [
-                'label' => 'Contrat de travaux (PDF file)',
+                'label' => 'Contrat de travaux (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -45,7 +54,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure2', FileType::class, [
-                'label' => 'Ordre de service (PDF file)',
+                'label' => 'Ordre de service (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -60,7 +69,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure3', FileType::class, [
-                'label' => 'Implantation (PDF file)',
+                'label' => 'Implantation (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -75,7 +84,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure4', FileType::class, [
-                'label' => 'Dossier d\'éxécution (PDF file)',
+                'label' => 'Dossier d\'éxécution (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -90,7 +99,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure5', FileType::class, [
-                'label' => 'PV reception provisoire (PDF file)',
+                'label' => 'PV reception provisoire (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -105,7 +114,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure6', FileType::class, [
-                'label' => 'PV levée de réserves (PDF file)',
+                'label' => 'PV levée de réserves (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -120,7 +129,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure7', FileType::class, [
-                'label' => 'Brochure (PDF file)',
+                'label' => 'Pv réception définitive (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -135,7 +144,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure8', FileType::class, [
-                'label' => 'Brochure (PDF file)',
+                'label' => 'Rapport annuel (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -150,7 +159,7 @@ class SuiviType extends AbstractType
                 ],
             ])
             ->add('brochure9', FileType::class, [
-                'label' => 'Brochure (PDF file)',
+                'label' => 'Rapport final (PDF)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [

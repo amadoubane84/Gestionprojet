@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un utilisateur{% endblock %}
+
+{% block body %}
+  <div class="container">
+   </br>
+    <center class="titre">Modifier un utilisateur</center>
+ </br>
+        {{ include('user/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+        <div class="text-right">
+        {{ include('user/_delete_form.html.twig') }}
+        </div>
+
+        <a href="{{ path('user_index') }}">Liste des utilisateurs</a>
+
+    </div>
+
+{% endblock %}

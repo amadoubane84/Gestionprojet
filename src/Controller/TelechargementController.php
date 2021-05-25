@@ -67,7 +67,7 @@ class TelechargementController extends AbstractController
 
             // ... persist the $product variable or any other work
 
-            return $this->redirectToRoute('projet_index');
+            return $this->redirectToRoute('etude');
         }
 
         return $this->render('telechargement/new.html.twig', [

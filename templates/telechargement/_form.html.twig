@@ -1,4 +1,25 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+  
+     <div class="container formulaire" >
+      <style>
+  .milieu{
+      
+       margin-left:350px;
+   }
+    </style>
+<br> 
+    <div class="text-center">
+   <div class="milieu">
+    <div class="col-md-6">
+        {{ form_row(form.Nom,{'label':'Nom du document'}) }}
+    </div>   
+     <div class="col-md-6">
+        {{ form_row(form.brochure, {'label':'Sélectionner le fichier'}) }}
+     </div> <br> 
+    </div>
+        <div class="text-center">
+        <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+        </div> <br> 
+</div>
 {{ form_end(form) }}

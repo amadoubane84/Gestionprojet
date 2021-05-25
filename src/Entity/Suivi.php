@@ -66,6 +66,13 @@ class Suivi
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rapport_final;
+     
+   /**
+     * @ORM\ManyToOne(targetEntity=Projet::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $nomprojet;
+
 
     public function getId(): ?int
     {
@@ -188,6 +195,17 @@ class Suivi
     public function setRapportFinal(?string $rapport_final): self
     {
         $this->rapport_final = $rapport_final;
+
+        return $this;
+    }
+    public function getNomprojet(): ?Projet
+    {
+        return $this->nomprojet;
+    }
+
+    public function setNomprojet(?Projet $nomprojet): self
+    {
+        $this->nomprojet = $nomprojet;
 
         return $this;
     }

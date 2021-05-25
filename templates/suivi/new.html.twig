@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Suivi{% endblock %}
+{% block title %}Enregistrer un suivi{% endblock %}
 
 {% block body %}
-    <h1>Create new Suivi</h1>
-
+  <br>  
+              <center class="titre">Enregistrer un suivi</center>
+<br> 
+   <div class="container">
+  
+            <a href="{{ path('suivi_index') }}" class="btn btn-info">Liste des Suivi</a>
+<br> <br> 
     {{ include('suivi/_form.html.twig') }}
-
-    <a href="{{ path('suivi_index') }}">back to list</a>
+</div>
 {% endblock %}

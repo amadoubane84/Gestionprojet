@@ -1,31 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Suivi index{% endblock %}
+{% block title %}Suivi{% endblock %}
 
 {% block body %}
-    <h1>Suivi index</h1>
+   <center class="titre">Suivi</center>
+ <br>  
+  
+ <div class="container">
+  <div class="text-center">
 
-    <table class="table">
+    <table class="table" id="myTable">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Reunion_de_demarrage</th>
-                <th>Contrat_de_travaux</th>
-                <th>Ordre_de_service</th>
+            <tr id="header">
+                <th>Nom du projet</th>
+                <th>Réunion de démarrage</th>
+                <th>Contrat de travaux</th>
+                <th>Ordre de service</th>
                 <th>Implantation</th>
-                <th>Dossiers_execution</th>
-                <th>Pv_reception_provisoire</th>
-                <th>Pv_levee_de_reserves</th>
-                <th>Pv_reception_definitive</th>
-                <th>Rapport_annuel</th>
-                <th>Rapport_final</th>
-                <th>actions</th>
+                <th>Dossiers d'éxecution</th>
+                <th>Pv de réception provisoire</th>
+                <th>Pv levée de reserves</th>
+                <th>Pv réception définitive</th>
+                <th>Rapport annuel</th>
+                <th>Rapport final</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for suivi in suivis %}
             <tr>
-                <td>{{ suivi.id }}</td>
+                <td>{{ suivi.nomprojet }}</td>
                 <td>{{ suivi.reunionDeDemarrage }}</td>
                 <td>{{ suivi.contratDeTravaux }}</td>
                 <td>{{ suivi.ordreDeService }}</td>
@@ -37,17 +41,20 @@
                 <td>{{ suivi.rapportAnnuel }}</td>
                 <td>{{ suivi.rapportFinal }}</td>
                 <td>
-                    <a href="{{ path('suivi_show', {'id': suivi.id}) }}">show</a>
-                    <a href="{{ path('suivi_edit', {'id': suivi.id}) }}">edit</a>
+                    <a href="{{ path('suivi_show', {'id': suivi.id}) }}">Voir</a>
+                    <a href="{{ path('suivi_edit', {'id': suivi.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="12">no records found</td>
+                <td colspan="12">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</br></br>
 
-    <a href="{{ path('suivi_new') }}">Create new</a>
+    <a href="{{ path('suivi_new') }}" class="btn btn-success">Enregistrer un suivi</a>
+    </div>
+    </div>
 {% endblock %}

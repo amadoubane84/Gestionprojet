@@ -1,4 +1,29 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+     <div class="container formulaire" >
+      <style>
+  .milieu{
+      
+   }
+    </style>
+<br> 
+    <div class="text-center">
+   <div class="milieu">
+            {{ form_row(form.nomprojet, {'label':'Sélectionner le projet'}) }}
+            {{ form_row(form.brochure, {'label':'Reunion de démarrage (PDF)'}) }}
+            {{ form_row(form.brochure1, {'label':'Contrat de travaux (PDF)'}) }}
+            {{ form_row(form.brochure2, {'label':'Ordre de service (PDF)'}) }}
+            {{ form_row(form.brochure3, {'label':'Implantation (PDF)'}) }}
+            {{ form_row(form.brochure4, {'label':'Dossier d\'éxécution (PDF)'}) }}
+            {{ form_row(form.brochure5, {'label':'PV reception provisoire (PDF)'}) }}
+            {{ form_row(form.brochure6, {'label':'PV levée de réserves (PDF)'}) }}
+            {{ form_row(form.brochure7, {'label':'Pv réception définitive (PDF)'}) }}
+            {{ form_row(form.brochure8, {'label':'Rapport annuel (PDF)'}) }}
+            {{ form_row(form.brochure9, {'label':'Rapport final (PDF)'}) }}
+
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+    </div> </div> </br>
+</div>
+</br></br>
 {{ form_end(form) }}

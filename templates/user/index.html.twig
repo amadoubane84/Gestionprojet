@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+   <div class="container">
+    <center class="titre">Liste des utilisateurs</center>
+
+    <table class="table"  id="myTable">
+        <thead>
+            <tr id="header">
+                <th>Utilisateur</th>
+                <th>Roles</th>
+                <th>Mot de passe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr class="ttttt">
+                <td>{{ user.username }}</td>
+                {% if user.roles|length is same as (2) %}
+                <td>Adminitrateur</td>
+                {% else %}
+                <td>Utilisateur</td>  
+                {% endif%}  
+                <td>**********</td>
+                <td>
+                   <!-- <a href="{#{{ path('user_show', {'id': user.id}) }} #}" class="btn btn-secondary">Voir</a>&nbsp -->
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-secondary">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_new') }}" class="btn btn-outline-primary">Créer un utilisateur</a>
+   </div> 
+{% endblock %}
