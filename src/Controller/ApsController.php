@@ -67,7 +67,7 @@ class ApsController extends AbstractController
                 $aP->setBrochureFileName($newFilename);
                 $entityManager=$this->getDoctrine()->getManager();
                 $entityManager->persist($aP);
-                $entityManager->flush($aP);
+                $entityManager->flush();
             }
 
             // ... persist the $product variable or any other work

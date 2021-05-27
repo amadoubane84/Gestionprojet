@@ -23,9 +23,19 @@ class Suivi
     private $reunion_de_demarrage;
 
     /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $contrat_de_travaux;
+
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName1;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -33,9 +43,19 @@ class Suivi
     private $ordre_de_service;
 
     /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName2;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $implantation;
+
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName3;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -43,9 +63,19 @@ class Suivi
     private $dossiers_execution;
 
     /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName4;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pv_reception_provisoire;
+
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName5;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -53,9 +83,19 @@ class Suivi
     private $pv_levee_de_reserves;
 
     /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName6;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pv_reception_definitive;
+
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName7;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -63,9 +103,18 @@ class Suivi
     private $rapport_annuel;
 
     /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName8;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rapport_final;
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $brochureFileName9;
      
    /**
      * @ORM\ManyToOne(targetEntity=Projet::class)
@@ -91,6 +140,18 @@ class Suivi
         return $this;
     }
 
+    public function getBrochureFileName(): ?string
+    {
+        return $this->brochureFileName;
+    }
+
+    public function setBrochureFileName(string $brochureFileName): self
+    {
+        $this->brochureFileName = $brochureFileName;
+        return $this;
+
+    }
+
     public function getContratDeTravaux(): ?string
     {
         return $this->contrat_de_travaux;
@@ -101,6 +162,17 @@ class Suivi
         $this->contrat_de_travaux = $contrat_de_travaux;
 
         return $this;
+    }
+    public function getBrochureFileName1(): ?string
+    {
+        return $this->brochureFileName1;
+    }
+
+    public function setBrochureFileName1(string $brochureFileName1): self
+    {
+        $this->brochureFileName1 = $brochureFileName1;
+        return $this;
+
     }
 
     public function getOrdreDeService(): ?string
@@ -114,6 +186,17 @@ class Suivi
 
         return $this;
     }
+    public function getBrochureFileName2(): ?string
+    {
+        return $this->brochureFileName2;
+    }
+
+    public function setBrochureFileName2(string $brochureFileName2): self
+    {
+        $this->brochureFileName2 = $brochureFileName2;
+        return $this;
+
+    }
 
     public function getImplantation(): ?string
     {
@@ -125,6 +208,17 @@ class Suivi
         $this->implantation = $implantation;
 
         return $this;
+    }
+    public function getBrochureFileName3(): ?string
+    {
+        return $this->brochureFileName3;
+    }
+
+    public function setBrochureFileName3(string $brochureFileName3): self
+    {
+        $this->brochureFileName3 = $brochureFileName3;
+        return $this;
+
     }
 
     public function getDossiersExecution(): ?string
@@ -138,6 +232,17 @@ class Suivi
 
         return $this;
     }
+    public function getBrochureFileName4(): ?string
+    {
+        return $this->brochureFileName4;
+    }
+
+    public function setBrochureFileName4(string $brochureFileName4): self
+    {
+        $this->brochureFileName4 = $brochureFileName4;
+        return $this;
+
+    }
 
     public function getPvReceptionProvisoire(): ?string
     {
@@ -149,6 +254,17 @@ class Suivi
         $this->pv_reception_provisoire = $pv_reception_provisoire;
 
         return $this;
+    }
+    public function getBrochureFileName5(): ?string
+    {
+        return $this->brochureFileName5;
+    }
+
+    public function setBrochureFileName5(string $brochureFileName5): self
+    {
+        $this->brochureFileName5 = $brochureFileName5;
+        return $this;
+
     }
 
     public function getPvLeveeDeReserves(): ?string
@@ -162,6 +278,17 @@ class Suivi
 
         return $this;
     }
+    public function getBrochureFileName6(): ?string
+    {
+        return $this->brochureFileName6;
+    }
+
+    public function setBrochureFileName6(string $brochureFileName6): self
+    {
+        $this->brochureFileName6 = $brochureFileName6;
+        return $this;
+
+    }
 
     public function getPvReceptionDefinitive(): ?string
     {
@@ -173,6 +300,17 @@ class Suivi
         $this->pv_reception_definitive = $pv_reception_definitive;
 
         return $this;
+    }
+    public function getBrochureFileName7(): ?string
+    {
+        return $this->brochureFileName7;
+    }
+
+    public function setBrochureFileName7(string $brochureFileName7): self
+    {
+        $this->brochureFileName7 = $brochureFileName7;
+        return $this;
+
     }
 
     public function getRapportAnnuel(): ?string
@@ -186,6 +324,17 @@ class Suivi
 
         return $this;
     }
+    public function getBrochureFileName8(): ?string
+    {
+        return $this->brochureFileName8;
+    }
+
+    public function setBrochureFileName8(string $brochureFileName8): self
+    {
+        $this->brochureFileName8 = $brochureFileName8;
+        return $this;
+
+    }
 
     public function getRapportFinal(): ?string
     {
@@ -197,6 +346,17 @@ class Suivi
         $this->rapport_final = $rapport_final;
 
         return $this;
+    }
+    public function getBrochureFileName9(): ?string
+    {
+        return $this->brochureFileName9;
+    }
+
+    public function setBrochureFileName9(string $brochureFileName9): self
+    {
+        $this->brochureFileName9 = $brochureFileName9;
+        return $this;
+
     }
     public function getNomprojet(): ?Projet
     {

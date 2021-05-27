@@ -132,16 +132,17 @@ class SuiviController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-                $suivi->setReunionDeDemarrage($newFilename);
-                $suivi->setContratDeTravaux($newFilename1);
-                $suivi->setOrdreDeService($newFilename2);
-                $suivi->setImplantation($newFilename3);
-                $suivi->setDossiersExecution($newFilename4);
-                $suivi->setPvReceptionProvisoire($newFilename5);
-                $suivi->setPvLeveeDeReserves($newFilename6);
-                $suivi->setPvReceptionDefinitive($newFilename7);
-                $suivi->setRapportAnnuel($newFilename8);
-                $suivi->setRapportFinal($newFilename9);
+
+                $suivi->setBrochureFileName($newFilename);
+                $suivi->setBrochureFileName1($newFilename1);
+                $suivi->setBrochureFileName2($newFilename2);
+                $suivi->setBrochureFileName3($newFilename3);
+                $suivi->setBrochureFileName4($newFilename4);
+                $suivi->setBrochureFileName5($newFilename5);
+                $suivi->setBrochureFileName6($newFilename6);
+                $suivi->setBrochureFileName7($newFilename7);
+                $suivi->setBrochureFileName8($newFilename8);
+                $suivi->setBrochureFileName9($newFilename9);
 
                 $entityManager=$this->getDoctrine()->getManager();
                 $entityManager->persist($suivi);
@@ -268,19 +269,18 @@ class SuiviController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-                $suivi->setReunionDeDemarrage($newFilename);
-                $suivi->setContratDeTravaux($newFilename1);
-                $suivi->setOrdreDeService($newFilename2);
-                $suivi->setImplantation($newFilename3);
-                $suivi->setDossiersExecution($newFilename4);
-                $suivi->setPvReceptionProvisoire($newFilename5);
-                $suivi->setPvLeveeDeReserves($newFilename6);
-                $suivi->setPvReceptionDefinitive($newFilename7);
-                $suivi->setRapportAnnuel($newFilename8);
-                $suivi->setRapportFinal($newFilename9);
+                $suivi->setBrochureFileName($newFilename);
+                $suivi->setBrochureFileName1($newFilename1);
+                $suivi->setBrochureFileName2($newFilename2);
+                $suivi->setBrochureFileName3($newFilename3);
+                $suivi->setBrochureFileName4($newFilename4);
+                $suivi->setBrochureFileName5($newFilename5);
+                $suivi->setBrochureFileName6($newFilename6);
+                $suivi->setBrochureFileName7($newFilename7);
+                $suivi->setBrochureFileName8($newFilename8);
+                $suivi->setBrochureFileName9($newFilename9);
 
                 $entityManager=$this->getDoctrine()->getManager();
-                $entityManager->persist($suivi);
                 $entityManager->flush();
             }
             return $this->redirectToRoute('suivi_index');

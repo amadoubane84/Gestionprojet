@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <br><a href="{{ path('projet_new') }}" class="btn btn-success">Ajouter un projet</a>
+    <br>&nbsp;&nbsp;<a href="{{ path('projet_new') }}" class="btn btn-success">Ajouter un projet</a>
           <center class="titre">Liste des projets</center>
    
       
@@ -31,8 +31,14 @@
             </tr>
         {% endfor %}
         </tbody>
+       
     </table>
+    <div class="text-left">
+        {% if is_granted('ROLE_ADMIN') == true %}
+            <a href="{{path('user_index')}}"> Ajouter un utilisateur </a>
+        {% endif %}
 
+       </div>
  {#
     <table class="table">
         <thead>

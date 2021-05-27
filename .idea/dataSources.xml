@@ -7,5 +7,11 @@
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306/gestionprojet</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="gestionprojet@localhost [2]" uuid="b8b5ea12-9eba-4733-94d2-a066abea94f4">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://localhost:3306/gestionprojet</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -19,11 +19,20 @@
   </div>
 
     {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
-        </div>
+<style>
+    .logout{
+        float: right;
+    }
+</style>
+  
     {% endif %}
-</nav> 
+</nav>
+ 
+<div class="">
+    <div class="mb-3">
+    </br> 
+    &nbsp;&nbsp; Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+    </div></div> 
 <div id="background-wrap">
     <div class="bubble x1"></div>
     <div class="bubble x2"></div>
