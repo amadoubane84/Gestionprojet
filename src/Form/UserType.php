@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,7 +26,7 @@ class UserType extends AbstractType
                 'Administrateur'=>'ROLE_ADMIN',
             ],
         ])
-        ->add('password', TextType::class, ['label'=>'Mot de passe'])
+        ->add('password', PasswordType::class, ['label'=>'Mot de passe'])
     ;
         $builder->get('roles')
                ->addModelTransformer(new CallbackTransformer(
