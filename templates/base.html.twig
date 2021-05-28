@@ -7,15 +7,32 @@
         <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css" >
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <link href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" > 
-      
-         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <link href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
   <a class="navbar-brand"href="{{ path('projet_index') }}">Management Tools </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-   
-      
   </button>
+      <!-- Dropdown -->
+                <div class="dropdown">
+                    <button class="dropbtn">Menu</button>
+                    <div class="dropdown-content">
+                        <a href="{{ path('projet_index') }}">Liste des projets</a>
+                        <a href="{{ path('site_index') }}">Liste des sites</a>
+                        <a href="{{ path('aps_index') }}">Liste des APS</a>
+                        <a href="{{ path('apd_index') }}">Liste des APD</a>
+                        <a href="{{ path('dao_index') }}">Liste des DAO</a>
+                        <a href="{{ path('suivi_index') }}">Liste des documents de suivi</a>
+                        <a href="{{ path('pvhebdomadaire_index') }}">Liste des PV hebdomadaires</a>
+                        <a href="{{ path('pvmensuel_index') }}">Liste des PV mensuels</a>
+                        <a href="{{ path('rmensuel_index') }}">Liste des rapports mensuels</a>
+                        <a href="{{ path('rtrimestriel_index') }}">Liste des rapports trimestriels</a>
+                        <a href="{{ path('visite_index') }}">Liste des visites</a>
+                        <a href="{{ path('telechargement_index') }}">Liste des fichiers à télécharger</a>
+                        <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+                </div>
   </div>
 
     {% if app.user %}
@@ -26,13 +43,13 @@
 </style>
   
     {% endif %}
+            </div>
 </nav>
  
 <div class="">
     <div class="mb-3">
     </br> 
-    &nbsp;&nbsp; Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
-    </div></div> 
+    </div></div>
 <div id="background-wrap">
     <div class="bubble x1"></div>
     <div class="bubble x2"></div>
@@ -317,9 +334,51 @@ tr {
   opacity:0.7;
   color:white; 
   border-radius: 15px;
-  
 }
- </style>
+  /* Dropdown Button */
+  .dropbtn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #78c2ad;
+      min-width: 300px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  </style>
         {% endblock %}
 
         {% block javascripts %}

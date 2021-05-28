@@ -21,16 +21,17 @@
                 <th>Nom du projet</th>
                 <td>{{ visite.nomprojet }}</td>
             </tr>
-            <tr>
+          <!--  <tr>
                 <th>Etat</th>
-                {% if visite.etat == 0 %}
+            {#    {% if visite.etat == 0 %}
                             <td>En cours</td>
                             {% elseif visite.etat == 1  %}
                             <td>Acceptée</td>
                             {% elseif visite.etat == 2 %}
                             <td>Refusée</td>
                             {% endif %}
-            </tr>
+            #}
+            </tr> -->
             <tr>
                 <th>Document</th>
                 <td><a href="{{ asset('uploads/brochures/' ~ visite.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>

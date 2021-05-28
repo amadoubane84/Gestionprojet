@@ -3,67 +3,43 @@
 {% block title %}Suivi{% endblock %}
 
 {% block body %}
-  <br>
-          <center class="titre">Détails du suivi</center>
-    <br> 
+    <br>
+    <center class="titre">Détails du suivi</center>
+    <br>
 
 
- <div class="container">
+    <div class="container">
+        <div class="text-center">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Réunion de démarrage</th>
-                <td>{{ suivi.reunionDeDemarrage }}</td>
-            </tr>
-            <tr>
-                <th>Contrat de travaux</th>
-                <td>{{ suivi.contratDeTravaux }}</td>
-            </tr>
-            <tr>
-                <th>Ordre de service</th>
-                <td>{{ suivi.ordreDeService }}</td>
-            </tr>
-            <tr>
-                <th>Implantation</th>
-                <td>{{ suivi.implantation }}</td>
-            </tr>
-            <tr>
-                <th>Dossiers d'éxecution</th>
-                <td>{{ suivi.dossiersExecution }}</td>
-            </tr>
-            <tr>
-                <th>Pv de réception provisoire</th>
-                <td>{{ suivi.pvReceptionProvisoire }}</td>
-            </tr>
-            <tr>
-                <th>Pv levée de reserves</th>
-                <td>{{ suivi.pvLeveeDeReserves }}</td>
-            </tr>
-            <tr>
-                <th>Pv réception définitive</th>
-                <td>{{ suivi.pvReceptionDefinitive }}</td>
-            </tr>
-            <tr>
-                <th>Rapport annuel</th>
-                <td>{{ suivi.rapportAnnuel }}</td>
-            </tr>
-            <tr>
-                <th>Rapport final</th>
-                <td>{{ suivi.rapportFinal }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <ul class="list-group">
+                <li class="list-group-item active">Voir les fichiers téléchargés</li>
+                <li class="list-group-item"> Nom du projet &nbsp;&nbsp;&nbsp;&nbsp; {{ suivi.nomprojet }} </a></li>
+                <li class="list-group-item"> Reunion de démarrage &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Contrat de travaux &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename1) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Ordre de service &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename2) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Implantation &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename3) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Dossier d'éxécution &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename4) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> PV réception provisoire &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename5) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> PV levée de réserves &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename6) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Pv réception définitive &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename7) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Rapport annuel &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename8) }}" target="_blank">Voir le fichier (PDF)</a></li>
+                <li class="list-group-item"> Rapport final &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename9) }}" target="_blank">Voir le fichier (PDF)</a></li>
+            </ul><br><br>
 
 
-     <div class="text-center"> 
-        <a href="{{ path('suivi_index') }}" class="btn btn-info">Liste des suivi</a>
 
-        <a href="{{ path('suivi_edit', {'id': suivi.id}) }}"class="btn btn-warning">Modifier</a>
+
+            <div class="text-center">
+                <a href="{{ path('suivi_index') }}" class="btn btn-info">Liste des suivi</a>
+
+                <a href="{{ path('suivi_edit', {'id': suivi.id}) }}"class="btn btn-warning">Modifier</a>
+            </div>
+            {{ include('suivi/_delete_form.html.twig') }}
+        </div>
+        <footer>
+            <span class="badge badge-pill badge-dark"><a href="{{ path('etude') }}">Suivi et Contrôle</a></span>
+        </footer>
     </div>
-     {{ include('suivi/_delete_form.html.twig') }}
-</div>
-<footer>
-<span class="badge badge-pill badge-dark"><a href="{{ path('etude') }}">Suivi et Contrôle</a></span>
-    </footer>
+
 {% endblock %}
+

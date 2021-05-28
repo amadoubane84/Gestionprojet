@@ -16,7 +16,7 @@
                 <th>Visite N°</th>
                  <th>Nom du projet</th>
                 <th>Fiche de visite</th>
-                <th>Etat</th>
+                <!--<th>Etat</th>-->
                
                 <th>Actions</th>
             </tr>
@@ -29,6 +29,7 @@
                  <td>
                 <a href="{{ asset('uploads/brochures/' ~ visite.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a>
                 </td>
+                {#
                               {% if visite.etat == 0 %}
                             <td style="background-color:DimGray;color:white;">En cours</td>
                             {% elseif visite.etat == 1  %}
@@ -36,7 +37,7 @@
                             {% elseif visite.etat == 2 %}
                             <td style="background-color:red;color:white;">Refusée</td>
                             {% endif %}
-
+                #}
                 <td>
                     <a href="{{ path('visite_show', {'id': visite.id}) }}">Voir</a>
                     <a href="{{ path('visite_edit', {'id': visite.id}) }}">Modifier</a>

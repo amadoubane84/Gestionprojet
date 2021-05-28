@@ -3,42 +3,46 @@
 {% block title %}Suivi{% endblock %}
 
 {% block body %}
-   <center class="titre">Suivi</center>
- <br>  
-  
- <div class="container">
-  <div class="text-center">
+    <center class="titre">Suivi</center>
+    <br>
+    <div class="container">
+        <div class="text-center">
 
+            <table class="table" id="myTable">
+                <thead>
+                <tr id="header">
 
-        {% for suivi in suivis %}
-            <ul class="list-group">
-                <li class="list-group-item active">Voir les fichiers téléchargés</li>
-                <li class="list-group-item"> Nom du projet &nbsp;&nbsp;&nbsp;&nbsp; {{ suivi.nomprojet }} </a></li>
-                <li class="list-group-item"> Reunion de démarrage &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Contrat de travaux &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename1) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Ordre de service &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename2) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Implantation &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename3) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Dossier d'éxécution &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename4) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> PV réception provisoire &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename5) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> PV levée de réserves &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename6) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Pv réception définitive &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename7) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Rapport annuel &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename8) }}" target="_blank">Voir le fichier (PDF)</a></li>
-                <li class="list-group-item"> Rapport final &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename9) }}" target="_blank">Voir le fichier (PDF)</a></li>
-            </ul><br><br>
-                    <a href="{{ path('suivi_show', {'id': suivi.id}) }}" class="btn btn-success">Voir</a>
-                    <a href="{{ path('suivi_edit', {'id': suivi.id}) }}" class="btn btn-warning">Modifier</a>
+                    <th>Nom du projet</th>
+                    <th>Reunion de démarrage</th>
+                    <th>Rapport final</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for suivi in suivis %}
+                    <tr class="ttttt">
+                        <td>{{ suivi.nomprojet }}</td>
+                        <td><a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename) }}" target="_blank">Voir le fichier (PDF)</a></td>
+                        <td><a href="{{ asset('uploads/brochures/' ~ suivi.brochureFilename9) }}" target="_blank">Voir le fichier (PDF)</a></td>
+                        <td>
 
+                            <a href="{{ path('suivi_show', {'id': suivi.id}) }}">Voir</a>
+                            <a href="{{ path('suivi_edit', {'id': suivi.id}) }}">Editer</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">Aucun projet enregistré</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-        {% else %}
-            <ul>
-                <li colspan="12">Aucun enregistrement trouvé</li>
-            </ul>
-        {% endfor %}
-        </tbody>
-    </table>
-</br></br>
+        </br></br>
 
-    <a href="{{ path('suivi_new') }}" class="btn btn-success">Enregistrer un suivi</a>
+        <a href="{{ path('suivi_new') }}" class="btn btn-success">Enregistrer un suivi</a>
     </div>
     </div>
 {% endblock %}
+
